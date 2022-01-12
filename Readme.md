@@ -2,9 +2,8 @@
 
 The aim of this ONLINE course is to give an intro to classical Molecular Dynamics 
 (MD) simulations. We will start from scratch by setting a MD simulation. Regarding the
-software, we will use VMD and NAMD, for the full protocol.
-We will also provide users with a set of best practices to improve the performance of
-their simulations.
+software, we will use VMD and NAMD, for the full protocol. We will also provide users
+with a set of best practices to improve the performance of their simulations.
 
 NOTE: The course will be online!
 
