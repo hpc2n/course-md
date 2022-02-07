@@ -11,32 +11,53 @@
   within this file starts on line 130 with the "SMD on" instruction. SMD uses a reference file
   **smd.ref** in this case, to especify the atoms to which a steering force will be applied.
 
-  **smd.ref** can be a copy of the initial PDB structure, the only thing that needs to be
-  modified is the occupancy column of the steered atoms which needs to be labeled with a
-  non-zero value. In the present case, because we will apply a force on the Na+ atom, you
-  need to change its occupancy to 1.00, for instance.
+  **smd.ref** can be a copy of the initial PDB structure (**box_water_nacl_eq.pdb**),
+  the only thing that needs to be modified is the occupancy column of the steered atoms
+  which needs to be labeled with a non-zero value. In the present case, because we will
+  apply a force on the Na+ atom, you need to change its occupancy to 1.00, for instance.
 
   The force constant, the velocity, and the direction of the steering force can be set in the
-  SMD section as well.
+  SMD section as well, keywords SMDk, SMDVel, SMDDir, respectively.
 
-  If we steere only the Na+ ion, the Cl- ion will tend to move along and we will not observe
-  Na-Cl at different separation distances. Because of this, we can use "constraints on"
+  If we steer only the Na+ ion, the Cl- ion will tend to move along and we will not observe the pair
+  Na-Cl at different separation distances. To avoid this issue, we can use "constraints on"
   in the configuration file. This uses a reference file called **rest.ref** where the atoms
   that need to be constraint at their initial positions are especified in the occupancy 
   column as we did in **smd.ref**. Notice that here, the Cl- is the one that needs to change
   its occupancy (use 1.00).
 
-  Run the script **smd.inp** for 50,000 steps in the direction 1 0 0 and the same amount of
-  steps in the -1 0 0 direction. This will allow you to get Na-Cl separations longer and 
+  Run the script **smd.inp** for 50,000 steps in the direction **1 0 0** and the same amount of
+  steps in the **-1 0 0** direction. This will allow you to get Na-Cl separations longer and 
   shorter than the initial 5.3A separation of Na-Cl. The direction can be changed with the
   SMDDir option.
    
   Note: change the value of **outputName** for both simulations otherwise the outputs will be
-  overwritten.
+  overwritten, for instance, you can use **smd_outa** and **smd_outb** for the output names.
 
+
+# Getting a Potential Mean of Force for Na-Cl with Adaptive Bias Force (ABF) method
 
 - Load the VMD modules on Kebnekaise:
 
 ```
+ml GCC/9.3.0  OpenMPI/4.0.3
+ml VMD/1.9.4a43-Python-3.8.2
 ```
+
+  Visualize both trajectories:
+
+```
+vmd gen2xplor.psf smd_outa.dcd smd_outb.dcd 
+```
+
+  and choose frames within 4 A and 10 A of separation for the Na-Cl pair. You can save the frames
+  by clicking on the **gen2xplor.psf** structure in VMD then with the mouse right bottom choose
+  *Save Coordinates*. In *Selected atoms* write **all** and choose the frame you want to save.
+  For this exercise, use the names **win1start.pdb, win2start.pdb, ..., win7start.pdb**. 
+
+  
+  Now, create a folder for each window (**window1, window2, ..., window7**) and  copy the
+  **win\*start.pdb** file to the corresponding folder. 
+
+
 
