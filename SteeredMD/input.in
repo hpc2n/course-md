@@ -1,0 +1,30 @@
+colvarsTrajFrequency      500   
+colvarsRestartFrequency   1000  
+
+colvar {
+	   name distance1
+
+	upperBoundary **FIXME** 	
+	upperWall **FIXME**
+	upperWallConstant 80.0
+	lowerBoundary **FIXME**
+	lowerWall **FIXME**
+	lowerWallConstant 80.0
+	   width  0.02
+	   distance {
+ 	   			group1 { 
+					   atomnumbers {6592} 
+					   }
+ 	   			group2 { 
+					   atomnumbers {6593} 
+					   }
+	            }
+																	
+}
+
+
+abf {
+   colvars  distance1
+   fullSamples 1000
+}
+

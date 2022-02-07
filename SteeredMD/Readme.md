@@ -34,6 +34,8 @@
   Note: change the value of **outputName** for both simulations otherwise the outputs will be
   overwritten, for instance, you can use **smd_outa** and **smd_outb** for the output names.
 
+  Submit the batch script **namd.sh** to the queue after fixing the SNIC project name.
+
 
 # Getting a Potential Mean of Force for Na-Cl with Adaptive Bias Force (ABF) method
 
@@ -58,5 +60,18 @@
   Now, create a folder for each window (**window1, window2, ..., window7**) and  copy the
   **win\*start.pdb** file to the corresponding folder. 
 
+- The simulations of each window will run independently of the others. For each window you will
+  need to copy the file **abf.inp** to the windows folders. Fix the *pdbfile* name with the
+  pdb file of the corresponding window. Also, fix the *outputName* and *restartName* with a
+  tag for the window, for instance, 1,2,...,7.
 
+- The ABF options are set in the *colvars on* section through the **input.in** file. Here, we
+  choose the Na+ and Cl- ions to define a *distance* collective variable. We will
+  set the value of *upperBoundary* as the initial separation +2A and *lowerBoundary* as the
+  initial separation -2A. Also, we will use *upperBoundary=upperWall* and *lowerBoundary=lowerWall*.
+  For instance, for the window1, we choose the initial separation equal to 4A, thus, 
+  *upperBoundary=upperWall=6* and *lowerBoundary=lowerWall=2*.
+
+- Copy the batch script **namd_abf.sh** to each folder and fix the SNIC project name. Submit the
+  job to the queue
 
