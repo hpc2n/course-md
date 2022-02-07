@@ -39,22 +39,21 @@
 
 - Load the VMD modules on Kebnekaise:
 
-```
-ml GCC/9.3.0  OpenMPI/4.0.3
-ml VMD/1.9.4a43-Python-3.8.2
-```
+  ```
+  ml GCC/9.3.0  OpenMPI/4.0.3
+  ml VMD/1.9.4a43-Python-3.8.2
+  ```
 
   Visualize both trajectories:
 
-```
-vmd gen2xplor.psf smd_outa.dcd smd_outb.dcd 
-```
+  ```
+  vmd gen2xplor.psf smd_outa.dcd smd_outb.dcd 
+  ```
 
   and choose frames within 4 A and 10 A of separation for the Na-Cl pair. You can save the frames
   by clicking on the **gen2xplor.psf** structure in VMD then with the mouse right bottom choose
   *Save Coordinates*. In *Selected atoms* write **all** and choose the frame you want to save.
   For this exercise, use the names **win1start.pdb, win2start.pdb, ..., win7start.pdb**. 
-
   
   Now, create a folder for each window (**window1, window2, ..., window7**) and  copy the
   **win\*start.pdb** file to the corresponding folder. 
