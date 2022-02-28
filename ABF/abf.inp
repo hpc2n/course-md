@@ -12,7 +12,7 @@ set stepspercycle 10
 set fixedAtoms off
 set cswitch off
 set cscale 10
-set nsteps 50000000
+set nsteps 500000
 set freq 1000
 set outputName  abf_out**FIXME**
 set restartName abf_out**FIXME**
