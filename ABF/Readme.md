@@ -1,13 +1,13 @@
 # Getting a Potential Mean of Force for Na-Cl with Adaptive Bias Force (ABF) method
 
-- Load the VMD modules on Kebnekaise:
+* Load the VMD modules on Kebnekaise:
 
   ```
   ml GCC/9.3.0  OpenMPI/4.0.3
   ml VMD/1.9.4a43-Python-3.8.2
   ```
 
-- Move to the Steered MD folder in case you are not there already (cd SteeredMD)
+* Go to the Steered MD folder in case you are not there already (cd SteeredMD)
 
   Visualize both trajectories that you already obtained:
 
@@ -21,22 +21,50 @@
   For this exercise, use the names **win1start.pdb, win2start.pdb, ..., win7start.pdb** (we will use
   only 7 frames but in a realistic case you may use more). 
  
-- Go to the **ABF** folder and create a subfolder for each window (**window1, window2, ..., window7**).
+* Go to the **ABF** folder and create a subfolder for each window (**window1, window2, ..., window7**).
   Copy each **win\*start.pdb** file obtained in the **SteeredMD** to the corresponding window subfolder
   in **ABF**. 
 
-- The simulations of each window will run independently of the others. For each window you will
+* The simulations of each window will run independently of the others. For each window you will
   need to copy the file **abf.inp** to the windows folders. Fix the *pdbfile* name with the
   pdb file of the corresponding window. Also, fix the *outputName* and *restartName* with a
-  tag for the window, for instance, 1,2,...,7.
+  tag for the window, for instance, **abf_out1, abf_out2,...,** and **abf_out7**.
 
-- The ABF options are set in the *colvars on* section through the **input.in** file. Here, we
+* The ABF options are set in the *colvars on* section through the **input.in** file. Here, we
   choose the Na+ and Cl- ions to define a *distance* collective variable. We will
   set the value of *upperBoundary* as the initial separation +2A and *lowerBoundary* as the
   initial separation -2A. Also, we will use *upperBoundary=upperWall* and *lowerBoundary=lowerWall*.
   For instance, for the window1, we choose the initial separation equal to 4A, thus, 
   *upperBoundary=upperWall=6* and *lowerBoundary=lowerWall=2*.
 
-- Copy the batch script **namd_abf.sh** to each folder and fix the SNIC project name. Submit the
+* Copy the batch script **namd_abf.sh** to each folder and fix the SNIC project name. Submit the
   job to the queue for each window.
 
+* Once you have the results of all windows, create subfolder called *MERGE* in *ABF*. Then, copy the
+  files **abf_outX.count** and **abf_outX.grad** from each window to the *MERGE* folder. If you are
+  en the *ABF* folder, you can use the following script to copy these files:
+
+  ```
+for i in `seq 1 7`; do cp window${i}/abf_out${i}.count MERGE/ ; done 
+for i in `seq 1 7`; do cp window${i}/abf_out${i}.grad MERGE/ ; done
+  ```
+
+  Copy the *abf.inp*, *input.in*, and *win1start.pdb* files from the *window1* folder to the *MERGE*
+  folder. In the *abf.inp* file set the number of steps to 0. In *input.in* set *colvarsTrajFrequency =
+  colvarsRestartFrequency = 0*, also *upperBoundary = upperWall = 12* so that the whole range from 2A
+  to 12A is covered now. In addition to this, add the line:
+
+  ```
+  inputPrefix abf_out1 abf_out2 abf_out3 abf_out4 abf_out5 abf_out6 abf_out7
+  ```
+
+  to the **abf {}** section. On the terminal load the following modules
+
+  ```
+  ml purge  > /dev/null 2>&1
+  ml GCC/10.3.0  OpenMPI/4.1.1
+  ml NAMD/2.14-mpi
+  ```
+
+  and run the namd script:  **namd2 abf.inp**. The resulting *abf_out1.pmf* will contain the PMF
+  computed along the whole range of the chosen collective variable. 

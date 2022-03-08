@@ -1,15 +1,23 @@
 # Setting up a Steered MD simulation (SMD) 
  
-- Move to the Steered MD folder in case you are not there already (cd SteeredMD)
+* Move to the Steered MD folder in case you are not there already (cd SteeredMD)
 
-- Visualize the structure in the PDB file **box_water_nacl_eq.pdb**. This is a water box
+* Load the following modules:
+
+```
+ml purge  > /dev/null 2>&1
+ml GCC/9.3.0  OpenMPI/4.0.3
+ml VMD/1.9.4a43-Python-3.8.2
+```
+
+* Visualize the structure in the PDB file **box_water_nacl_eq.pdb**. This is a water box
   with one Na+ and one Cl- ions. They are approximately aligned in the X-direction.
 
-- The goal of this exercise is that you generate a trajectory path that contains the
+* The goal of this exercise is that you generate a trajectory path that contains the
   Na-Cl ions at different separation distances. We will use this trajectory in the next
   section.
 
-- The configuration file for running SMD is called **smd.inp**. The specific part for SMD
+* The configuration file for running SMD is called **smd.inp**. The specific part for SMD
   within this file starts on line 130 with the "SMD on" instruction. SMD uses a reference file
   **smd.ref** in this case, to especify the atoms to which a steering force will be applied.
 
@@ -38,4 +46,4 @@
 
   Submit the batch script **namd.sh** to the queue after fixing the SNIC project name.
 
-
+* Visualize the resulting trajectories **smd_outa.dcd** and **smd_outb.dcd** with VMD.

@@ -14,8 +14,8 @@ set cswitch off
 set cscale 10
 set nsteps 50000
 set freq 1000
-set outputName  smd_out
-set restartName smd_out
+set outputName  smd_out*FIXME*
+set restartName smd_out*FIXME*
 set temperature 298.15
 set lang on
 #!/bin/vmd
