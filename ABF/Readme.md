@@ -44,10 +44,10 @@
   files **abf_outX.count** and **abf_outX.grad** from each window to the *MERGE* folder. If you are
   en the *ABF* folder, you can use the following script to copy these files:
 
-  ```
-for i in `seq 1 7`; do cp window${i}/abf_out${i}.count MERGE/ ; done 
-for i in `seq 1 7`; do cp window${i}/abf_out${i}.grad MERGE/ ; done
-  ```
+
+> for i in `seq 1 7`; do cp window${i}/abf_out${i}.count MERGE/ ; done 
+> for i in `seq 1 7`; do cp window${i}/abf_out${i}.grad MERGE/ ; done
+
 
   Copy the *abf.inp*, *input.in*, and *win1start.pdb* files from the *window1* folder to the *MERGE*
   folder. In the *abf.inp* file set the number of steps to 0. In *input.in* set *colvarsTrajFrequency =
