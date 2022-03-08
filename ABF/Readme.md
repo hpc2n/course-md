@@ -46,6 +46,7 @@
 
 
 > for i in `seq 1 7`; do cp window${i}/abf_out${i}.count MERGE/ ; done 
+
 > for i in `seq 1 7`; do cp window${i}/abf_out${i}.grad MERGE/ ; done
 
 
