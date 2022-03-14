@@ -1,5 +1,14 @@
 # Setting up a Steered MD simulation (SMD) 
- 
+
+The idea of this method is to induce structural motions by applying some external force. The
+potential used in NAMD is given by the following expression:
+
+
+```math 
+U(r_1,r_2,...,t) = \frac{1}{2} k \left [ vt \right ] 
+```
+
+
 <p align="center">
 <img src="./img/afm.png" width=50%>
 
