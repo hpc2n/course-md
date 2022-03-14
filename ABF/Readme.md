@@ -5,14 +5,26 @@
 The free energy along some reaction coordinate <img src="https://render.githubusercontent.com/render/math?math=\xi">
 can be computed as follows [1]:
 
+<p align="center">
 <img src="https://render.githubusercontent.com/render/math?math=A(\xi)=-\frac{1}{\beta}\ln P(\xi) + A_0">
+</p>
 
 where <img src="https://render.githubusercontent.com/render/math?math=P(\xi)"> is the probability along
 the reaction coordinate and <img src="https://render.githubusercontent.com/render/math?math=A_0"> is a reference 
 value. By using the expression of the free energy a force can be defined w.r.t. the reaction coordinate:
 
-<img src="https://render.githubusercontent.com/render/math?math=\frac{dA(\xi)}{d\xi}=\langle \frac{\partial U(x)}{\partial \xi} -\frac{1}{\beta} \frac{\ln |J|}{\partial \xi} \rangle ">
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=\frac{dA(\xi)}{d\xi}=\langle \frac{\partial U(x)}{\partial \xi} -\frac{1}{\beta} \frac{\ln |J|}{\partial \xi} \rangle = -\langle F_{\xi} \rangle_{\xi} ">
+</p>
 
+Here, <img src="https://render.githubusercontent.com/render/math?math=U(x)"> is the potential energy, 
+<img src="https://render.githubusercontent.com/render/math?math=|J|"> is the determinant of the transformation of 
+coordinates computed through the Jacobian. <img src="https://render.githubusercontent.com/render/math?math=-\langle F_{\xi} \rangle_{\xi}"> is 
+the average of the force. In this way, the biasing force can be computed as:
+
+<p align="center">
+<img src="https://render.githubusercontent.com/render/math?math=F^{ABF} = \nabla_{x}A_{estimated} = -\langle F_{\xi} \rangle_{\xi} \nabla_{x} \xi">
+</p>
 
 ## Exercise
 
