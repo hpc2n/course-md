@@ -2,6 +2,7 @@
  
 <p align="center">
 <img src="./img/afm.png" width=50%>
+
 <em> Atomic force microscopy, Biophys. J. 72, 1568 (1997)</em>
 </p>
 
