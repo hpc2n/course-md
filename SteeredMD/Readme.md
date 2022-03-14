@@ -4,9 +4,8 @@ The idea of this method is to induce structural motions by applying some externa
 potential used in NAMD is given by the following expression:
 
 
-```math 
-U(r_1,r_2,...,t) = \frac{1}{2} k \left [ vt \right ] 
-```
+<img src="https://render.githubusercontent.com/render/math?math=e^{i \pi} = -1">
+<img src="https://render.githubusercontent.com/render/math?math=U(r_1,r_2,...,t) = \frac{1}{2} k \left [ vt \right ]">
 
 
 <p align="center">
