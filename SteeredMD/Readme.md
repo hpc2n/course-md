@@ -1,5 +1,10 @@
 # Setting up a Steered MD simulation (SMD) 
  
+![Atomic force microscopy, Biophys. J. 72, 1568 (1997)](./img/afm.png)
+
+
+## Exercise
+
 * Move to the Steered MD folder in case you are not there already (cd SteeredMD)
 
 * Load the following modules:
