@@ -95,6 +95,11 @@ ml VMD/1.9.4a43-Python-3.8.2
 
 * Visualize the resulting trajectories **smd_outa.dcd** and **smd_outb.dcd** with VMD.
 
+### Solution
+
+In case you couldn't get the input files and resulting trajectories, some solution can be
+found in the **files** folder.
+
 
 ## References
 
