@@ -2,7 +2,17 @@
 
 ## Theory
 
-The free energy along some reaction coordinate <img src="https://render.githubusercontent.com/render/math?math=\xi"> 
+The free energy along some reaction coordinate <img src="https://render.githubusercontent.com/render/math?math=\xi">
+can be computed as follows [1]:
+
+<img src="https://render.githubusercontent.com/render/math?math=A(\xi)=-\frac{1}{\beta}\ln P(\xi) + A_0">
+
+where <img src="https://render.githubusercontent.com/render/math?math=P(\xi)"> is the probability along
+the reaction coordinate and <img src="https://render.githubusercontent.com/render/math?math=A_0"> is a reference 
+value. By using the expression of the free energy a force can be defined w.r.t. the reaction coordinate:
+
+<img src="https://render.githubusercontent.com/render/math?math=\frac{dA(\xi)}{d\xi}=\left < \frac{1}{\beta}\ln P(\xi) \right >">
+
 
 ## Exercise
 
@@ -84,3 +94,4 @@ found in the **files** folder.
 
 ## References
 
+1. https://www.ks.uiuc.edu/Research/namd//2.6b2/ug/node35.html
