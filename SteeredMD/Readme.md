@@ -1,6 +1,6 @@
 # Setting up a Steered MD simulation (SMD) 
  
-![Atomic force microscopy, Biophys. J. 72, 1568 (1997)](./img/afm.png)
+![Atomic force microscopy, Biophys. J. 72, 1568 (1997)](./img/afm.png){width=50%}
 
 
 ## Exercise
