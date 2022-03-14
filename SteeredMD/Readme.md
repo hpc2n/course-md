@@ -9,12 +9,36 @@ potential used in NAMD is given by the following expression:
 </p>
 
 Here, <img src="https://render.githubusercontent.com/render/math?math=k"> (SMDk flag in NAMD) is the force constant, 
+<img src="https://render.githubusercontent.com/render/math?math=v"> (SMDVel) is the steering velocity. The direction
+is denoted by the vector <img src="https://render.githubusercontent.com/render/math?math=\vec{n}"> (SMDDir). 
+<img src="https://render.githubusercontent.com/render/math?math=\vec{R}(t)"> is the center of mass of the selected
+atoms. The selected atoms are specified in the file SMDFile, see more details in [1].
 
 <p align="center">
 <img src="./img/afm.png" width=50%>
 
 <em> Atomic force microscopy, Biophys. J. 72, 1568 (1997)</em>
 </p>
+
+SMD is activated by including the line **SMD on** in the NAMD input file. As an example the
+following lines can be used (should be adapted depending on your system):
+
+```
+SMD on
+SMDFile smd.ref  #reference file
+SMDk 5           #force constant
+SMDVel  0.0001   #velocity Angstrom/timestep 
+SMDDir  0 0 1    #direction of the applied force
+SMDOutputFreq 10 #frequency of output
+```
+
+The reference file **smd.ref** is a copy of the PDB structure file for the system
+but with the occupancy value set to a value different than 0 (X in the following line):
+
+```
+ATOM   6593  SOD SOD N   1      11.754  -4.900   1.776  X.00  0.00      NA 
+```
+
 
 ## Exercise
 
@@ -65,3 +89,9 @@ ml VMD/1.9.4a43-Python-3.8.2
   Submit the batch script **namd.sh** to the queue after fixing the SNIC project name.
 
 * Visualize the resulting trajectories **smd_outa.dcd** and **smd_outb.dcd** with VMD.
+
+
+## References
+
+1. https://www.ks.uiuc.edu/Research/namd/2.9/ug/node48.html
+2. https://www.ks.uiuc.edu/Training/Tutorials/science/channel/channel-tut.pdf 
