@@ -5,8 +5,10 @@ potential used in NAMD is given by the following expression:
 
 
 <p align="center">
-<img src="https://render.githubusercontent.com/render/math?math=U(r_1,r_2,...,t) = \frac{1}{2} k \left [ vt - (\vec{R}(t) - R_0) \cdot n \right ]^2">
+<img src="https://render.githubusercontent.com/render/math?math=U(\vec{r}_1,\vec{r}_2,...,t) = \frac{1}{2} k \left [ vt - (\vec{R}(t) - \vec{R}_0) \cdot \vec{n} \right ]^2">
 </p>
+
+Here, <img src="https://render.githubusercontent.com/render/math?math=k"> (SMDk flag in NAMD) is the force constant, 
 
 <p align="center">
 <img src="./img/afm.png" width=50%>
