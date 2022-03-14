@@ -1,5 +1,7 @@
 # Setting up a Steered MD simulation (SMD) 
 
+## Theory
+
 The idea of this method is to induce structural motions by applying some external force. The
 potential used in NAMD is given by the following expression:
 
@@ -26,8 +28,8 @@ following lines can be used (should be adapted depending on your system):
 ```
 SMD on
 SMDFile smd.ref  #reference file
-SMDk 5           #force constant
-SMDVel  0.0001   #velocity Angstrom/timestep 
+SMDk 5           #force constant (kcal/mol A^2)
+SMDVel  0.0001   #velocity (Angstrom/timestep)
 SMDDir  0 0 1    #direction of the applied force
 SMDOutputFreq 10 #frequency of output
 ```
@@ -38,6 +40,9 @@ but with the occupancy value set to a value different than 0 (X in the following
 ```
 ATOM   6593  SOD SOD N   1      11.754  -4.900   1.776  X.00  0.00      NA 
 ```
+
+Notice that upon steering an atom (or a group of atoms) the other atoms in the system
+will tend to move along. Thus, some type of constraint should be applied to them.
 
 
 ## Exercise
