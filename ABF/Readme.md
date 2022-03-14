@@ -11,7 +11,7 @@ where <img src="https://render.githubusercontent.com/render/math?math=P(\xi)"> i
 the reaction coordinate and <img src="https://render.githubusercontent.com/render/math?math=A_0"> is a reference 
 value. By using the expression of the free energy a force can be defined w.r.t. the reaction coordinate:
 
-<img src="https://render.githubusercontent.com/render/math?math=\frac{dA(\xi)}{d\xi}=\left < \frac{1}{\beta}\ln P(\xi) \right >">
+<img src="https://render.githubusercontent.com/render/math?math=\frac{dA(\xi)}{d\xi}=\langle \frac{1}{\beta}\ln P(\xi) \rangle ">
 
 
 ## Exercise
