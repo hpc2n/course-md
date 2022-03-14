@@ -1,5 +1,11 @@
 # Getting a Potential Mean of Force for Na-Cl with Adaptive Bias Force (ABF) method
 
+## Theory
+
+The free energy along some reaction coordinate <img src="https://render.githubusercontent.com/render/math?math=\xi"> 
+
+## Exercise
+
 * Load the VMD modules on Kebnekaise:
 
   ```
@@ -69,3 +75,12 @@
 
   and run the namd script:  **namd2 abf.inp**. The resulting *abf_out1.pmf* will contain the PMF
   computed along the whole range of the chosen collective variable. 
+
+### Solution
+
+In case you couldn't get the input files and resulting trajectories, some solution can be
+found in the **files** folder.
+
+
+## References
+

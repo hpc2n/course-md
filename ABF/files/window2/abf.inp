@@ -1,0 +1,117 @@
+#!/bin/vmd
+#variable parameters (automatic)
+set restart 0
+set resetTemp 0
+set psffile ../../gen2xplor.psf 
+set pdbfile win2start.pdb
+set count 1
+set shake all
+set dt 1.0
+set firstTstep 0
+set stepspercycle 10
+set fixedAtoms off
+set cswitch off
+set cscale 10
+set nsteps 500000
+set freq 1000
+set outputName  abf_out2
+set restartName abf_out2
+set temperature 298.15
+set lang on
+#!/bin/vmd
+#############################################################
+structure          $psffile
+coordinates        $pdbfile
+
+if {$restart == 1 }      {
+ bincoordinates     $restartName.coor
+if {$resetTemp == 0} {
+ binvelocities      $restartName.vel
+} else {
+ temperature $temperature
+}
+ extendedSystem     $restartName.xsc
+} elseif {$restart == 0} {
+ temperature $temperature
+}
+
+set outputname     $outputName
+firsttimestep      $firstTstep ;  # total previous md steps
+
+# Parameter File
+paraTypeCharmm      on
+parameters          ../../par_all27_prot_na.prm
+
+# PME and periodic boundary conditions
+# Force-Field Parameters/Non-bond options.
+exclude             scaled1-4
+1-4scaling          1.0
+cutoff              10.0
+switching           on
+switchdist          9.0
+pairlistdist        12.0
+
+
+# Integrator Parameters
+timestep            $dt ;# 2fs/step
+rigidBonds          $shake  ;# needed for 2fs steps
+nonbondedFreq       1
+if { ($shake == "all") || ($shake == "water") } {
+ fullElectFrequency  1
+} else {
+ fullElectFrequency  2
+}
+stepspercycle       $stepspercycle
+
+
+# Periodic Boundary Conditions (a=b=c=68.083297)
+cellBasisVector1    40.3   0.0    0.0
+cellBasisVector2     0.0  40.3    0.0
+cellBasisVector3     0.0   0.0   40.3
+cellOrigin           0.00000000     0.00000000     0.00000000
+
+wrapWater           on
+wrapAll             on
+wrapNearest         on
+
+
+# PME (for full-system periodic electrostatics)
+PME                 yes
+PMEGridSizeX        48
+PMEGridSizeY        48
+PMEGridSizeZ        48
+
+# Constant Temperature Control
+langevin            $lang   ;# do langevin dynamics
+langevinDamping     1       ;# damping coefficient (gamma) of 5/ps
+langevinTemp        $temperature
+langevinHydrogen    off    ;# don't couple langevin bath to hydrogens
+
+
+# Constant pressure using Nose-hoover Langevin piston
+LangevinPiston      on
+LangevinPistonPeriod 200
+LangevinPistonDecay  100
+LangevinPistonTarget 1.01325
+LangevinPistonTemp   298.15
+
+# Output
+outputName            $outputName
+binaryoutput          yes ; # non-binary output file for coordinate and velocity
+
+#############################################################
+## OUTPUT PARAMETERS                                       ##
+#############################################################
+
+restartfreq         $freq     ;# 1000steps = every 2ps APPLIES TO MINIMIZATION TOO
+dcdfreq             $freq
+xstFreq             $freq
+outputEnergies      $freq
+
+
+colvars                 on
+colvarsConfig           input.in 
+#colvarsInput            meta.colvars.state 
+
+
+run $nsteps

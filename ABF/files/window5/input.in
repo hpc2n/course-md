@@ -1,0 +1,30 @@
+colvarsTrajFrequency      500   
+colvarsRestartFrequency   1000  
+
+colvar {
+	   name distance1
+
+	upperBoundary 10.0 	
+	upperWall 10.0
+	upperWallConstant 80.0
+	lowerBoundary 6.0
+	lowerWall 6.0
+	lowerWallConstant 80.0
+	   width  0.02
+	   distance {
+ 	   			group1 { 
+					   atomnumbers {6592} 
+					   }
+ 	   			group2 { 
+					   atomnumbers {6593} 
+					   }
+	            }
+																	
+}
+
+
+abf {
+   colvars  distance1
+   fullSamples 100
+}
+
