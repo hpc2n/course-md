@@ -1,4 +1,4 @@
-# Getting a Potential Mean of Force for Na-Cl with Adaptive Bias Force (ABF) method
+# Getting a Potential Mean of Force for Na-Cl with Adaptive Biasing Force (ABF) method
 
 ## Theory
 
