@@ -2,8 +2,8 @@
 #variable parameters (automatic)
 set restart 0
 set resetTemp 0
-set psffile ../gen2xplor.psf 
-set pdbfile **FIXME**.pdb
+set psffile gen2xplor.psf 
+set pdbfile box_water_nacl_eq.pdb
 set count 1
 set shake all
 set dt 1.0
@@ -12,10 +12,10 @@ set stepspercycle 10
 set fixedAtoms off
 set cswitch off
 set cscale 10
-set nsteps 500000
+set nsteps 50000
 set freq 1000
-set outputName  abf_out**FIXME**
-set restartName abf_out**FIXME**
+set outputName  out-ini
+set restartName out-ini
 set temperature 298.15
 set lang on
 #!/bin/vmd
@@ -40,7 +40,7 @@ firsttimestep      $firstTstep ;  # total previous md steps
 
 # Parameter File
 paraTypeCharmm      on
-parameters          ../par_all27_prot_na.prm
+parameters          par_all27_prot_na.prm
 
 # PME and periodic boundary conditions
 # Force-Field Parameters/Non-bond options.
@@ -74,7 +74,6 @@ wrapWater           on
 wrapAll             on
 wrapNearest         on
 
-
 # PME (for full-system periodic electrostatics)
 PME                 yes
 PMEGridSizeX        48
@@ -83,10 +82,9 @@ PMEGridSizeZ        48
 
 # Constant Temperature Control
 langevin            $lang   ;# do langevin dynamics
-langevinDamping     1       ;# damping coefficient (gamma) of 1/ps
+langevinDamping     1       ;# damping coefficient (gamma) of ps^-1
 langevinTemp        $temperature
 langevinHydrogen    off    ;# don't couple langevin bath to hydrogens
-
 
 # Constant pressure using Nose-hoover Langevin piston
 LangevinPiston      on
@@ -107,11 +105,5 @@ restartfreq         $freq     ;# 1000steps = every 2ps APPLIES TO MINIMIZATION T
 dcdfreq             $freq
 xstFreq             $freq
 outputEnergies      $freq
-
-
-colvars                 on
-colvarsConfig           input.in 
-#colvarsInput            meta.colvars.state 
-
 
 run $nsteps
