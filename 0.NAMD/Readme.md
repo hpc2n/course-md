@@ -3,9 +3,9 @@
 Files needed for NAMD (standard MD simulation):
 
    - configuration file
-      -- psf file (gen2xplor.psf)
-      -- coordinates file (box_water_nacl_eq.pdb)
-      -- parametens file (par_all27_prot_na.prm)
+      - psf file (gen2xplor.psf)
+      - coordinates file (box_water_nacl_eq.pdb)
+      - parametens file (par_all27_prot_na.prm)
 
 Running the MPI CPU version 
 
