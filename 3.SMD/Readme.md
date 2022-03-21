@@ -105,3 +105,4 @@ found in the **files** folder.
 
 1. https://www.ks.uiuc.edu/Research/namd/2.9/ug/node48.html
 2. https://www.ks.uiuc.edu/Training/Tutorials/science/channel/channel-tut.pdf 
+3. https://colvars.github.io/colvars-refman-vmd/colvars-refman-vmd.html
