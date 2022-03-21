@@ -107,3 +107,4 @@ found in the **files** folder.
 ## References
 
 1. https://www.ks.uiuc.edu/Research/namd//2.6b2/ug/node35.html
+2. https://colvars.github.io/colvars-refman-vmd/colvars-refman-vmd.html
