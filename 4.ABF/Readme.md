@@ -96,7 +96,8 @@ the average of the force. In this way, the biasing force can be computed as:
   ```
 
   and run the namd script:  **namd2 abf.inp**. The resulting *abf_out1.pmf* will contain the PMF
-  computed along the whole range of the chosen collective variable. 
+  computed along the whole range of the chosen collective variable. If the PMF did not converge, 
+  one way to improve it is by increasing the number of steps in **abf.inp** (nsteps) to 500000.
 
 ### Solution
 
