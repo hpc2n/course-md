@@ -42,7 +42,7 @@ every listing line={\textcolor{green}{\small\ttfamily\bfseries b-an01 [$\sum$/st
 \author{Birgitte Bryds\o}
 \institute{HPC2N, Ume\aa{} University}
 
-\titlegraphic{\center{\includegraphics[height=0.9cm]{umu-logo-left-se.png}\hspace*{0.3cm}~\includegraphics[height=0.91cm]{SNIC_logo.png}\hspace*{0.3cm}~\includegraphics[height=0.9cm]{hpc2n.png}\hspace*{0.3cm}}
+\titlegraphic{\center{\includegraphics[height=0.9cm]{figures/umu-logo-left-se.png}\hspace*{0.3cm}~\includegraphics[height=0.91cm]{figures/SNIC_logo.png}\hspace*{0.3cm}~\includegraphics[height=0.9cm]{figures/hpc2n.png}\hspace*{0.3cm}~\includegraphics[height=0.9cm]{figures/prace-logo-icon.png}\hspace*{0.3cm}}
 }
 \date{\textbf{7}-8 April 2022}
 \begin{document}
@@ -55,7 +55,7 @@ every listing line={\textcolor{green}{\small\ttfamily\bfseries b-an01 [$\sum$/st
 
   \begin{block}{}
     \begin{itemize}
-    \item Kebnekaise
+%    \item Kebnekaise
     \item Connecting to HPC2N's systems (Kebnekaise) with ThinLinc
     \item Editors
     \item The filesystem 
@@ -71,41 +71,41 @@ every listing line={\textcolor{green}{\small\ttfamily\bfseries b-an01 [$\sum$/st
   \end{block}
 }
 
-\frame{\frametitle{Kebnekaise}
+% \frame{\frametitle{Kebnekaise}
 
-  \begin{block}{}
-    \begin{center}
-      \includegraphics[width=2.4cm]{kebnekaise.png}
-    \end{center}
-  \end{block}
+%   \begin{block}{}
+%     \begin{center}
+%       \includegraphics[width=2.4cm]{figures/kebnekaise.png}
+%     \end{center}
+%   \end{block}
 
-  \begin{block}{}
-    \begin{enumerate}
-      \begin{footnotesize}
-      \item 602 nodes / 19288 cores (of which 2448 are KNL)
-      \end{footnotesize}
-      \begin{itemize}
-        \begin{scriptsize}
-        \item 432 Intel Xeon E5-2690v4, 2x14 cores, 128 GB/node
-        \item 52 Intel Xeon Gold 6132, 2x14 cores, 192 GB/node
-        \item 20 Intel Xeon E7-8860v4, 4x18 cores, 3072 GB/node
-        \item 32 Intel Xeon E5-2690v4, 2x NVidia K80, 2x14, 2x4992, 128 GB/node
-        \item 4 Intel Xeon E5-2690v4, 4x NVidia K80, 2x14, 4x4992, 128 GB/node
-        \item 10 Intel Xeon Gold 6132, 2x NVidia V100, 2x14, 2x5120, 192 GB/node
-        \item 36 Intel Xeon Phi 7250, 68 cores, 192 GB/node, 16 GB MCDRAM/node
-        \end{scriptsize}
-      \end{itemize}
-      \begin{footnotesize}
-      \item 501760 CUDA ``cores'' (80*4992 cores/K80+20*5120 cores/V100)
-      \item More than 136 TB memory total
-      \item Interconnect: Mellanox FDR / EDR Infiniband
-      \item Theoretical performance/HP Linpack: 984 TF / 791 TF
-      \item Date installed: Fall 2016 / Spring 2017 / Spring 2018 
-      \end{footnotesize}
-    \end{enumerate}
-  \end{block}
+%   \begin{block}{}
+%     \begin{enumerate}
+%       \begin{footnotesize}
+%       \item 602 nodes / 19288 cores (of which 2448 are KNL)
+%       \end{footnotesize}
+%       \begin{itemize}
+%         \begin{scriptsize}
+%         \item 432 Intel Xeon E5-2690v4, 2x14 cores, 128 GB/node
+%         \item 52 Intel Xeon Gold 6132, 2x14 cores, 192 GB/node
+%         \item 20 Intel Xeon E7-8860v4, 4x18 cores, 3072 GB/node
+%         \item 32 Intel Xeon E5-2690v4, 2x NVidia K80, 2x14, 2x4992, 128 GB/node
+%         \item 4 Intel Xeon E5-2690v4, 4x NVidia K80, 2x14, 4x4992, 128 GB/node
+%         \item 10 Intel Xeon Gold 6132, 2x NVidia V100, 2x14, 2x5120, 192 GB/node
+%         \item 36 Intel Xeon Phi 7250, 68 cores, 192 GB/node, 16 GB MCDRAM/node
+%         \end{scriptsize}
+%       \end{itemize}
+%       \begin{footnotesize}
+%       \item 501760 CUDA ``cores'' (80*4992 cores/K80+20*5120 cores/V100)
+%       \item More than 136 TB memory total
+%       \item Interconnect: Mellanox FDR / EDR Infiniband
+%       \item Theoretical performance/HP Linpack: 984 TF / 791 TF
+%       \item Date installed: Fall 2016 / Spring 2017 / Spring 2018 
+%       \end{footnotesize}
+%     \end{enumerate}
+%   \end{block}
 
-}
+% }
 
 \frame{\frametitle{Connecting to HPC2N's systems with ThinLinc}
 
@@ -359,7 +359,7 @@ environment (compiling, using prebuilt software). Includes some/all of: compiler
       spider $<$software$>$ / ml spider $<$software$>$}
       \begin{itemize}
       \item Example: NAMD \\
-      \includegraphics[width=7cm]{load-namd.png}
+      \includegraphics[width=7cm]{figures/load-namd.png}
     \end{itemize}
     \end{itemize}
 \end{block}
@@ -402,7 +402,7 @@ environment (compiling, using prebuilt software). Includes some/all of: compiler
 
   \begin{block}{}
     Loading NAMD/2.14-mpi:
-    \includegraphics[width=8cm]{load-namd-version.png}
+    \includegraphics[width=8cm]{figures/load-namd-version.png}
     \end{block}
 
 }
@@ -410,7 +410,8 @@ environment (compiling, using prebuilt software). Includes some/all of: compiler
 \frame{\frametitle{Loaded software modules: example, NAMD/2.14-mpi}
 
   \begin{block}{}
-    \includegraphics[width=7cm]{namd-loaded.png}
+    Checking which modules we have loaded now: 
+    \includegraphics[width=7cm]{figures/namd-loaded.png}
     \end{block}
 
 }
@@ -521,11 +522,11 @@ environment (compiling, using prebuilt software). Includes some/all of: compiler
      \begin{itemize}
      \item Submit job: \texttt{sbatch $<$jobscript.sh$>$} (successful
        submission returns a job-id number) \\
-       \includegraphics[width=5cm]{submit.png}
+       \includegraphics[width=5cm]{figures/submit.png}
        \item As default, output/errors are found in \texttt{slurm-$<$job-id$>$.out} 
      \item Get list of all jobs: \texttt{squeue}
      \item Get list of only your jobs: \texttt{squeue -u $<$username$>$} \\
-       \includegraphics[width=6cm]{squeue.png}
+       \includegraphics[width=6cm]{figures/squeue.png}
      \item Adding the flag \texttt{--start} to \texttt{squeue} gives
          the estimated job start time. This can change depending on
          other people's jobs. 
