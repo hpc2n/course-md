@@ -1,3 +1,5 @@
+# Exercise: setting up a MD simulation with VMD and QwikMD  
+
 * Load the following modules:
 
 ```
@@ -6,7 +8,7 @@ ml GCC/9.3.0  OpenMPI/4.0.3
 ml VMD/1.9.4a43-Python-3.8.2
 ```
 
-* Assuming you are in the folder MD_QM-NAMD_ORCA, open VMD on the
+* Assuming you are in the folder **2.QWIKMD-Case**, open VMD on the
 GUI and go to Extensions -> Simulation -> QwikMD
 The first time VMD will ask you if you want to create the folder for QwikMD,
 say OK.

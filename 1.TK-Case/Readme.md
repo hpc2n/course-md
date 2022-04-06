@@ -1,4 +1,4 @@
-# Setting up a MD simulation with NAMD and VMD 
+# Exercise: setting up a MD simulation with VMD TK terminal 
 
 - Download the PDB structure from Protein Data Bank (https://www.rcsb.org/). 
   In the field "Enter search term" write  4AKE. Then, use the option "Download Files"
