@@ -377,21 +377,22 @@ environment (compiling, using prebuilt software). Includes some/all of: compiler
       \begin{itemize}
     \begin{footnotesize}
         \item Most software modules have prerequisites. Use 'ml
-          spider' on a specific version to see how it is loaded
+          spider' on a specific version to see how it is loaded \\
         \item \texttt{ml spider $<$software$>$/version}
-          \item Then load it and any prerequisites
-      \texttt{module load $<$pre-requisite module$>$ / ml $<$pre-requisite module$>$}
-      \texttt{module load $<$module$>$ / ml $<$module$>$}
+          \item Then load it and any prerequisites \\
+      \texttt{module load $<$pre-req module$>$ OR ml $<$pre-req
+        module$>$} \\
+      \texttt{module load $<$module$>$ OR ml $<$module$>$}
       \item You can also load all on one line, listing the
-        prerequisites first (\texttt{ml $<$pre-requisite module$>$ $<$module$>$})
+        prerequisites first \\ (\texttt{ml $<$pre-req module$>$ $<$module$>$})
     \end{footnotesize}
      \end{itemize}
     \item Unloading a module: \\
       \texttt{module unload $<$module$>$}
     \item Unloading all modules: \\
-      \texttt{module purge / ml purge}
+      \texttt{module purge OR ml purge}
     \item Seeing which modules you currently have loaded \\
-      \texttt{module list / ml}
+      \texttt{module list OR ml}
     \end{itemize}
     \end{footnotesize}
 \end{block}
@@ -550,7 +551,7 @@ environment (compiling, using prebuilt software). Includes some/all of: compiler
           \texttt{\#SBATCH -n 28} \texttt{\textcolor{red}{\#Number of processes. }} \\
  %         \hspace{2.5cm}  Default is 1 CPU/task. \texttt{\textcolor{red}{Change with --cpus-per-task}} \\
         \vspace{3mm} 
-        \texttt{ml purge $<$ /dev/null 2$>$\&1} \\ 
+        \texttt{ml purge $>$ /dev/null 2$>$\&1} \\ 
         \texttt{ml GCC/10.3.0  OpenMPI/4.1.1} \\
         \texttt{ml NAMD/2.14-mpi} \\
         \vspace{3mm}
@@ -571,8 +572,8 @@ environment (compiling, using prebuilt software). Includes some/all of: compiler
     \begin{block}{}
       \begin{small}
         \texttt{\#!/bin/bash} \\
-        \texttt{\textcolor{red}{\#Project id}} \\
-        \texttt{\#SBATCH -A SNIC2022-22-237}
+        \texttt{\#SBATCH -A SNIC2022-22-237} \texttt{\textcolor{red}{\#Project id}} \\
+
         \texttt{\#SBATCH -J my-namd-job} \texttt{\textcolor{red}{\#Name of job}} \\
           \texttt{\#SBATCH --time=00:10:00}
           \texttt{\textcolor{red}{\#Jobtime (HH:MM:SS) Max: 168H}}\\
@@ -581,7 +582,7 @@ environment (compiling, using prebuilt software). Includes some/all of: compiler
           \texttt{\#SBATCH --gres=gpu:k80:2} \texttt{\textcolor{red}{\#Asking for 2 K80 GPUs}} \\
           \texttt{\#SBATCH --exclusive} \texttt{\textcolor{red}{\#Asking for exclusive access to the node}}\\
         \vspace{3mm} 
-        \texttt{ml purge $<$ /dev/null 2$>$\&1} \\ 
+        \texttt{ml purge $>$ /dev/null 2$>$\&1} \\ 
         \texttt{ml GCC/9.3.0  CUDA/11.0.2  OpenMPI/4.0.3} \\
         \texttt{ml NAMD/2.14-nompi} \\
         \vspace{3mm}
